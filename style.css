@@ -243,3 +243,28 @@ input:focus {
     border-radius: 50%;
     border: 1px solid #ccc;
 }
+/* Leaderboard Filter Tabs */
+.leaderboard-filters {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.filter-btn {
+    background: #edf2f7;
+    color: #4a5568;
+    border: 2px solid #cbd5e0;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+}
+
+.filter-btn.active {
+    background: #3182ce;
+    color: white;
+    border-color: #2b6cb0;
+}
