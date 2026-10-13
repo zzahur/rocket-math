@@ -78,9 +78,18 @@
             <button id="restart-btn" class="secondary-btn">Play Again 🔄</button>
         </div>
 
-        <!-- SCREEN 4: LEADERBOARD -->
+       <!-- SCREEN 4: LEADERBOARD -->
         <div id="leaderboard-screen" class="screen">
             <h2>🏆 Hall of Fame 🏆</h2>
+            
+            <!-- NEW: Operation Filter Buttons -->
+            <div class="leaderboard-filters">
+                <button class="filter-btn active" data-op="addition">➕ Add</button>
+                <button class="filter-btn" data-op="subtraction">➖ Sub</button>
+                <button class="filter-btn" data-op="multiplication">✖️ Mult</button>
+                <button class="filter-btn" data-op="division">➗ Div</button>
+            </div>
+
             <ul id="leaderboard-list">
                 <li>Loading top scores...</li>
             </ul>
