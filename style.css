@@ -1,0 +1,245 @@
+/* Global Reset & Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', cursive, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6b11ff, #00d4ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.game-container {
+    background: #ffffff;
+    width: 90%;
+    max-width: 480px;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: relative; /* important for confetti layering */
+}
+
+/* Header with Avatar */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #ff5e00;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Avatar Core Styles (Mii Style) */
+.creation-zone {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.main-avatar {
+    width: 140px;
+    height: 140px;
+    background-color: #f3f3f3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 8px solid #ddd;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: background-image 0.2s ease, border-color 0.2s ease;
+}
+
+.avatar-controls {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: -15px;
+}
+
+.cycle-btn {
+    background: #fff;
+    padding: 6px 12px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 3px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+/* Mini Avatar for Header/Leaderboard */
+.mini-avatar {
+    display: none; /* hidden until character created */
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.end-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 4px solid #ddd;
+}
+
+/* Buttons & Grids */
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 18px;
+    transition: transform 0.1s ease, background 0.2s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.op-btn {
+    background: #f0f4f8;
+    color: #4a5568;
+    border: 3px solid #cbd5e0;
+}
+
+.op-btn.selected {
+    background: #48bb78;
+    color: white;
+    border-color: #38a169;
+}
+
+.primary-btn {
+    background: #ff5e00;
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(255, 94, 0, 0.3);
+}
+
+.primary-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.secondary-btn {
+    background: #4a5568;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Gameplay UI */
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+.question-box {
+    background: #ebf8ff;
+    border: 4px dashed #3182ce;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.question-box h2 {
+    font-size: 2.5rem;
+    color: #2b6cb0;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.3rem;
+    text-align: center;
+    border: 3px solid #cbd5e0;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #3182ce;
+}
+
+.big-score {
+    font-size: 3.5rem;
+    color: #38a169;
+    margin: 15px 0;
+}
+
+/* Leaderboard List */
+#leaderboard-list {
+    list-style: none;
+    margin: 20px 0;
+    max-height: 220px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 0 10px;
+}
+
+#leaderboard-list li {
+    background: #f7fafc;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* keep avatar/text aligned */
+    font-weight: 600;
+}
+
+.leaderboard-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ldr-avatar {
+    width: 28px;
+    height: 28px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}

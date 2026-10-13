@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Star Adventures!</title>
+    <!-- Google Fonts for a playful, kid-friendly look -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Load the Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- HEADER -->
+        <header>
+            <div id="header-avatar" class="mini-avatar"></div>
+            <h1>Rocket Math ⭐</h1>
+        </header>
+
+        <!-- SCREEN 0: NEW! PROFILE CREATION (Mii-style) -->
+        <div id="profile-screen" class="screen active">
+            <h2>Welcome, Explorer! 🚀</h2>
+            <p>Create your unique character:</p>
+            
+            <div class="creation-zone">
+                <div id="avatar-preview" class="main-avatar"></div>
+                <div class="avatar-controls">
+                    <button class="cycle-btn" id="prev-btn">⬅️</button>
+                    <button class="cycle-btn" id="next-btn">➡️</button>
+                </div>
+            </div>
+
+            <input type="text" id="player-name-input" placeholder="Enter your cool nickname!" maxlength="12">
+            <button id="create-profile-btn" class="primary-btn" disabled>Done! ✨</button>
+        </div>
+
+        <!-- SCREEN 1: MENU (Select Operation) -->
+        <div id="menu-screen" class="screen">
+            <h2>Choose Your Mission!</h2>
+            <p>Pick a math power:</p>
+            <div class="button-grid">
+                <button class="op-btn" data-op="addition">➕ Addition</button>
+                <button class="op-btn" data-op="subtraction">➖ Subtraction</button>
+                <button class="op-btn" data-op="multiplication">✖️ Multiplication (12x12)</button>
+                <button class="op-btn" data-op="division">➗ Division</button>
+            </div>
+            <button id="start-btn" class="primary-btn" disabled>Start Mission! 🎮</button>
+            <button id="view-leaderboard-btn" class="secondary-btn">🏆 View Leaderboard</button>
+        </div>
+
+        <!-- SCREEN 2: GAMEPLAY -->
+        <div id="game-screen" class="screen">
+            <div class="game-stats">
+                <span id="score-display">Score: 0</span>
+                <span id="timer-display">⏱️ 10s</span>
+            </div>
+            <div class="question-box">
+                <h2 id="question-text">7 + 5 = ?</h2>
+            </div>
+            <div class="input-area">
+                <input type="number" id="answer-input" placeholder="?" autofocus>
+                <button id="submit-answer-btn" class="primary-btn">Submit 🎯</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: GAME OVER -->
+        <div id="gameover-screen" class="screen">
+            <h2>Mission Complete! 🎉</h2>
+            <div id="end-screen-avatar" class="end-avatar"></div>
+            <p>Your Final Score:</p>
+            <h1 id="final-score-display" class="big-score">0</h1>
+            
+            <!-- We're moving score submission here to trigger confetti on leaderboard display -->
+            <button id="goto-leaderboard-btn" class="primary-btn">Save to Leaderboard 🌟</button>
+            <button id="restart-btn" class="secondary-btn">Play Again 🔄</button>
+        </div>
+
+        <!-- SCREEN 4: LEADERBOARD -->
+        <div id="leaderboard-screen" class="screen">
+            <h2>🏆 Hall of Fame 🏆</h2>
+            <ul id="leaderboard-list">
+                <li>Loading top scores...</li>
+            </ul>
+            <button id="back-to-menu-btn" class="secondary-btn">⬅️ Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- Link your JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
